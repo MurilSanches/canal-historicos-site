@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Autorização - Canal Históricos</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 3rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  code { display: block; padding: .75rem; background: #f3f3f3; word-break: break-all; }
+</style>
+</head>
+<body>
+<h1>Autorização concluída</h1>
+<p id="msg">Copie o código abaixo e cole no terminal em <code style="display:inline;padding:0">python main.py autorizar-tiktok</code>.</p>
+<code id="codigo"></code>
+<script>
+  var p = new URLSearchParams(location.search);
+  var el = document.getElementById("codigo");
+  if (p.get("code")) {
+    // URLSearchParams já decodifica (%2A -> *)
+    el.textContent = p.get("code");
+  } else {
+    document.getElementById("msg").textContent = "Nenhum código recebido" + (p.get("error") ? ": " + p.get("error") : ".");
+    el.style.display = "none";
+  }
+</script>
+</body>
+</html>
