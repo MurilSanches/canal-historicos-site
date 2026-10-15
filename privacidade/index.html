@@ -18,7 +18,7 @@
 
 <h2>2. Dados tratados</h2>
 <ul>
-  <li><strong>Token de autorização do TikTok</strong> (escopo <code>video.upload</code>): emitido para a conta do próprio criador e armazenado apenas em arquivo local no computador dele.</li>
+  <li><strong>Token de autorização do TikTok</strong> (Login Kit, escopos <code>user.info.basic</code> e <code>video.upload</code>): emitido para a conta do próprio criador e armazenado apenas em arquivo local no computador dele. O escopo <code>user.info.basic</code> é incluído pelo Login Kit e usado somente para autenticar o criador; nenhum dado de perfil é lido ou armazenado.</li>
   <li><strong>Token de autorização do YouTube</strong> (escopo <code>youtube.upload</code>): emitido para o canal do próprio criador e armazenado apenas em arquivo local no computador dele.</li>
   <li><strong>Vídeos gerados</strong>: enviados para a caixa de entrada do TikTok do criador como rascunho e para o canal do YouTube do criador com publicação agendada.</li>
 </ul>
