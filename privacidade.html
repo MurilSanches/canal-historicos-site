@@ -18,16 +18,18 @@
 
 <h2>2. Dados tratados</h2>
 <ul>
-  <li><strong>Token de autorização do TikTok</strong> (Login Kit, escopo <code>user.info.basic</code> e <code>video.upload</code>): emitido para a conta do próprio criador e armazenado apenas em arquivo local no computador dele.</li>
-  <li><strong>Vídeos gerados</strong>: enviados para a caixa de entrada do TikTok do criador como rascunho.</li>
+  <li><strong>Token de autorização do TikTok</strong> (escopo <code>video.upload</code>): emitido para a conta do próprio criador e armazenado apenas em arquivo local no computador dele.</li>
+  <li><strong>Token de autorização do YouTube</strong> (escopo <code>youtube.upload</code>): emitido para o canal do próprio criador e armazenado apenas em arquivo local no computador dele.</li>
+  <li><strong>Vídeos gerados</strong>: enviados para a caixa de entrada do TikTok do criador como rascunho e para o canal do YouTube do criador com publicação agendada.</li>
 </ul>
 <p>Nenhum dado de perfil, lista de seguidores ou informação de outros usuários é lido, armazenado ou compartilhado.</p>
 
 <h2>3. Uso e compartilhamento</h2>
-<p>O token é usado exclusivamente para enviar rascunhos de vídeo à conta do criador. Não vendemos, alugamos nem compartilhamos dados com terceiros, além das próprias plataformas (TikTok e YouTube) necessárias para a publicação.</p>
+<p>Os tokens são usados exclusivamente para enviar vídeos às contas do criador. Não vendemos, alugamos nem compartilhamos dados com terceiros, além das próprias plataformas (TikTok e YouTube) necessárias para a publicação.</p>
+<p>O uso de informações recebidas das APIs do Google segue a <a href="https://developers.google.com/terms/api-services-user-data-policy">Política de Dados do Usuário dos Serviços de API do Google</a>, incluindo os requisitos de Uso Limitado.</p>
 
 <h2>4. Retenção e exclusão</h2>
-<p>O token fica salvo localmente até ser apagado pelo criador. O acesso pode ser revogado a qualquer momento em TikTok &gt; Configurações e privacidade &gt; Segurança e permissões &gt; Permissões de apps.</p>
+<p>Os tokens ficam salvos localmente até serem apagados pelo criador. O acesso pode ser revogado a qualquer momento em TikTok &gt; Configurações e privacidade &gt; Segurança e permissões &gt; Permissões de apps, e em <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> para o YouTube.</p>
 
 <h2>5. Segurança</h2>
 <p>Credenciais ficam em arquivos locais fora de repositórios públicos e nunca são exibidas neste site.</p>
