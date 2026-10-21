@@ -2,20 +2,86 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Canal Históricos</title>
+<meta name="description" content="Vídeos curtos e educativos sobre figuras históricas, com roteiros baseados em fontes verificáveis e checagem de fatos antes da publicação.">
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 3rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  body { font-family: system-ui, sans-serif; margin: 0; line-height: 1.6; color: #222; background: #fff; }
+  header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1rem; }
+  header { display: flex; align-items: center; gap: 1rem; padding-top: 2.5rem; padding-bottom: 1rem; }
+  header img { border-radius: 16px; flex: none; }
+  header h1 { margin: 0; font-size: 1.8rem; }
+  header p { margin: .25rem 0 0; color: #555; }
+  nav { max-width: 46rem; margin: 0 auto; padding: .5rem 1rem 1rem; border-bottom: 1px solid #ddd; }
+  nav a { margin-right: 1rem; }
   a { color: #0b5cad; }
+  h2 { margin-top: 2rem; }
+  .passos { padding-left: 1.2rem; }
+  footer { padding-top: 1.5rem; padding-bottom: 2.5rem; margin-top: 2rem; border-top: 1px solid #ddd; color: #555; font-size: .9rem; }
 </style>
 </head>
 <body>
-<h1>Canal Históricos</h1>
-<p>Ferramenta pessoal que produz vídeos curtos e educativos sobre figuras históricas, com roteiros baseados em fontes verificáveis (Wikipédia e Wikidata) e checagem de fatos antes da publicação.</p>
-<p>Integração com o TikTok: após autorização do dono da conta, o vídeo é enviado para a caixa de entrada do TikTok como <strong>rascunho</strong>. O dono revisa, marca o conteúdo como gerado por IA e publica manualmente. Nenhuma postagem é feita automaticamente.</p>
+<header>
+  <img src="icon-1024.jpg" alt="Logo do Canal Históricos" width="96" height="96">
+  <div>
+    <h1>Canal Históricos</h1>
+    <p>História contada em vídeos curtos, com fontes e checagem de fatos.</p>
+  </div>
+</header>
+<nav aria-label="Principal">
+  <a href="#sobre">Sobre</a>
+  <a href="#como-funciona">Como funciona</a>
+  <a href="#fontes">Fontes</a>
+  <a href="#tiktok">TikTok</a>
+  <a href="#contato">Contato</a>
+</nav>
+
+<main>
+<section id="sobre">
+<h2>Sobre o projeto</h2>
+<p>O Canal Históricos produz vídeos curtos e educativos sobre figuras e episódios da história, em português do Brasil. O objetivo é apresentar fatos de forma clara e acessível, sem inventar detalhes: cada afirmação do roteiro precisa estar apoiada em uma fonte consultada.</p>
+<p>Os vídeos são publicados no YouTube e em outras redes. O projeto é mantido por uma pessoa e não tem fins de coleta de dados de visitantes.</p>
+</section>
+
+<section id="como-funciona">
+<h2>Como funciona</h2>
+<ol class="passos">
+  <li><strong>Pesquisa:</strong> reunimos o material do tema em fontes abertas e verificáveis.</li>
+  <li><strong>Roteiro:</strong> o texto é escrito apenas com o que consta nessas fontes.</li>
+  <li><strong>Checagem de fatos:</strong> cada frase é conferida contra as fontes; o que não é sustentado por elas é corrigido ou removido.</li>
+  <li><strong>Revisão humana:</strong> o criador revisa o resultado e aprova antes de qualquer publicação.</li>
+  <li><strong>Vídeo:</strong> narração, legendas e imagens de acervos públicos (por exemplo, Wikimedia Commons, respeitando as licenças e os créditos).</li>
+</ol>
+</section>
+
+<section id="fontes">
+<h2>Fontes e transparência</h2>
 <ul>
-  <li><a href="termos/">Termos de Serviço</a></li>
-  <li><a href="privacidade/">Política de Privacidade</a></li>
+  <li>Wikipédia (português e inglês) e Wikidata, como base dos fatos.</li>
+  <li>Wikimedia Commons, para imagens com licença livre e crédito aos autores.</li>
+  <li>Ferramentas de inteligência artificial ajudam na redação e na checagem, e os vídeos são identificados como conteúdo gerado por IA nas plataformas que oferecem essa marcação.</li>
 </ul>
+</section>
+
+<section id="tiktok">
+<h2>Integração com o TikTok</h2>
+<p>Com autorização do dono da conta (Login Kit), cada vídeo é enviado para a caixa de entrada do TikTok como <strong>rascunho</strong>. O dono revisa, marca o conteúdo como gerado por IA e publica manualmente. Nenhuma postagem é feita automaticamente.</p>
+<p>O acesso solicitado se limita a autenticar o criador e enviar vídeos à própria conta. Nenhum dado de outros usuários é lido ou armazenado. Detalhes na <a href="privacidade/">Política de Privacidade</a>.</p>
+</section>
+
+<section id="contato">
+<h2>Contato</h2>
+<p>Dúvidas, correções ou pedidos de remoção de conteúdo: <a href="mailto:canaldarkhistorico@gmail.com">canaldarkhistorico@gmail.com</a>.</p>
+</section>
+</main>
+
+<footer>
+  <a href="termos/">Termos de Serviço</a> ·
+  <a href="privacidade/">Política de Privacidade</a>
+  <p>&copy; 2026 Canal Históricos.</p>
+</footer>
 </body>
 </html>
