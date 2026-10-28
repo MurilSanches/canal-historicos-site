@@ -183,11 +183,15 @@ section[id], .assunto { scroll-margin-top: 1rem; }   /* destino das âncoras (#r
 
 /* ---------- Livros: lista de catálogo, uma linha por obra ---------- */
 .livros { border-top: 1px solid var(--filete); margin-bottom: .5rem; }
-.livros li { padding: .75rem 0; border-bottom: 1px solid var(--filete); line-height: 1.35; }
-.livros li a { font-weight: 700; font-size: 1.1rem; }
+.livros li { display: flex; gap: .9rem; align-items: flex-start; padding: .85rem 0; border-bottom: 1px solid var(--filete); line-height: 1.35; }
+.livros .capa { flex: none; width: 72px; height: 108px; object-fit: cover; border: 1px solid var(--filete); border-radius: 3px; background: var(--papel-2); }
+.livros .info { min-width: 0; flex: 1; }
+.livros .titulo { display: block; font-weight: 700; font-size: 1.1rem; }
 .livros small { display: block; margin-top: .2rem; font: 400 .85rem/1.45 var(--sans); color: var(--suave); }
-.livros .lojas { display: block; margin-top: .25rem; font: 400 .85rem/1.45 var(--sans); color: var(--suave); }
-.livros .lojas a { font: 600 .85rem/1.45 var(--sans); }
+.livros .lojas { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .6rem; }
+.livros .loja { display: inline-flex; align-items: center; gap: .45rem; min-height: var(--alvo, 44px); padding: 0 .85rem; border: 1px solid var(--traco, var(--filete)); border-radius: 999px; font: 600 .9rem/1 var(--sans); color: var(--tinta); text-decoration: none; background: var(--papel); }
+.livros .loja:hover { border-color: var(--bordo); color: var(--bordo); }
+.livros .loja svg { flex: none; }
 
 /* ---------- Texto corrido (páginas legais) ---------- */
 .texto { font-size: 1.15rem; }
