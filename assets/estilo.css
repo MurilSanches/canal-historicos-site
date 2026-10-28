@@ -186,6 +186,8 @@ section[id], .assunto { scroll-margin-top: 1rem; }   /* destino das âncoras (#r
 .livros li { padding: .75rem 0; border-bottom: 1px solid var(--filete); line-height: 1.35; }
 .livros li a { font-weight: 700; font-size: 1.1rem; }
 .livros small { display: block; margin-top: .2rem; font: 400 .85rem/1.45 var(--sans); color: var(--suave); }
+.livros .lojas { display: block; margin-top: .25rem; font: 400 .85rem/1.45 var(--sans); color: var(--suave); }
+.livros .lojas a { font: 600 .85rem/1.45 var(--sans); }
 
 /* ---------- Texto corrido (páginas legais) ---------- */
 .texto { font-size: 1.15rem; }
