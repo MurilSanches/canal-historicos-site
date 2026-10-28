@@ -1,0 +1,217 @@
+/* Histórias Antigas: folha de estilo única, escrita à mão. Sem framework, sem build, sem JavaScript, sem requisição externa.
+   Direção: editorial de acervo. Papel envelhecido, tinta sépia, bordô, filetes duplos de gravura. Serifa (EB Garamond) para
+   títulos e texto; sem serifa (Inter) só para rótulos, botões e metadados. Mobile primeiro, gutter de 16 px. */
+
+/* ---------- Fontes locais (OFL), só o subconjunto latino ---------- */
+@font-face { font-family: "EB Garamond"; src: url("fontes/eb-garamond-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "EB Garamond"; src: url("fontes/eb-garamond-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "EB Garamond"; src: url("fontes/eb-garamond-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fontes/inter-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fontes/inter-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+
+/* ---------- Tokens ---------- */
+:root {
+  color-scheme: light dark;
+
+  /* papel e tinta (claro) */
+  --papel: #f4ecdc;
+  --papel-2: #ebe0c8;
+  --tinta: #2b2118;
+  --suave: #5f4f3d;          /* texto secundário: AA também sobre --papel-2 */
+  --bordo: #7a1f2b;
+  --bordo-2: #5c1620;
+  --botao-texto: #f4ecdc;    /* texto sobre --bordo */
+  --filete: #c9b896;         /* filetes decorativos */
+  --traco: #8a7658;          /* contorno de controle (chips): 3:1 contra o papel */
+
+  /* tipografia */
+  --serif: "EB Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "SF Mono", Consolas, "Liberation Mono", monospace;
+
+  /* medidas */
+  --largura: 44rem;
+  --gutter: 1rem;
+  --raio: 6px;
+  --alvo: 2.75rem;           /* área mínima de toque: 44 px */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papel: #1c1712;
+    --papel-2: #261f18;
+    --tinta: #eadfc8;
+    --suave: #b8a98f;
+    --bordo: #e0959f;
+    --bordo-2: #efb5bd;
+    --botao-texto: #1c1712;
+    --filete: #4a3d2c;
+    --traco: #7d6d54;
+  }
+}
+
+@media (min-width: 40rem) { :root { --gutter: 1.5rem; } }
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font: 1.2rem/1.6 var(--serif);
+  hyphens: auto;
+  overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
+}
+@media (prefers-color-scheme: dark) { body { line-height: 1.68; } }   /* texto claro em fundo escuro pede mais respiro */
+
+img { max-width: 100%; height: auto; display: block; }
+p { margin: 0 0 1rem; text-wrap: pretty; }
+strong { font-weight: 700; }
+
+a { color: var(--bordo); text-decoration-thickness: .06em; text-underline-offset: .18em; }
+a:hover { color: var(--bordo-2); text-decoration-thickness: .12em; }
+:focus-visible { outline: 3px solid var(--bordo); outline-offset: 3px; border-radius: 2px; }
+
+/* ---------- Estrutura: cabeçalho, conteúdo e rodapé na mesma coluna ---------- */
+.topo, .conteudo, .rodape {
+  width: 100%;
+  max-width: var(--largura);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Filete duplo desenhado por pseudo-elemento: alinha com o texto e com os filetes dos títulos (a coluna inteira com
+   o padding faria o traço do cabeçalho passar do filete das seções). */
+.topo { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .5rem; }
+.topo::after, .rodape::before {
+  content: ""; position: absolute; inset-inline: var(--gutter); border-top: 3px double var(--filete); pointer-events: none;
+}
+.topo::after { bottom: 0; }
+
+.marca {
+  font: 700 1.3rem/1.15 var(--serif);
+  letter-spacing: .03em;
+  color: var(--tinta);
+  text-decoration: none;
+  display: inline-flex; align-items: center; min-height: var(--alvo);
+}
+.marca:hover { color: var(--bordo); }
+
+.topo nav { display: flex; align-items: center; gap: .25rem; font: 600 .95rem/1 var(--sans); }
+.topo nav a { display: inline-flex; align-items: center; min-height: var(--alvo); padding-inline: .6rem; text-decoration: none; }
+.topo nav a:hover { text-decoration: underline; text-underline-offset: .3em; }
+.topo nav .youtube { justify-content: center; min-width: var(--alvo); padding-inline: .3rem; margin-right: -.3rem; }
+.youtube svg { display: block; }
+.youtube:hover { opacity: .85; }
+
+.conteudo { padding-block: .5rem 1rem; }
+
+/* ---------- Títulos ---------- */
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; text-wrap: balance; }
+h1 { font-size: clamp(2.2rem, 8vw, 3.4rem); letter-spacing: -.01em; margin: 2rem 0 .5rem; }
+h2 { font-size: 1.65rem; margin: 3rem 0 1rem; padding-top: .8rem; border-top: 3px double var(--filete); }
+h3 { font-size: 1.25rem; margin: 1.75rem 0 .4rem; }
+section[id], .assunto { scroll-margin-top: 1rem; }   /* destino das âncoras (#recentes, livros/#assunto) */
+
+.lema { font-style: italic; color: var(--suave); font-size: 1.3rem; line-height: 1.4; margin: 0 0 1.25rem; max-width: 34rem; }
+.apresentacao { padding-bottom: .5rem; }
+
+/* ---------- Botões ---------- */
+.botoes { display: flex; flex-wrap: wrap; gap: .75rem; margin: 0 0 1rem; }
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; min-height: var(--alvo);
+  padding: .6rem 1.2rem;
+  font: 600 .95rem/1.2 var(--sans);
+  color: var(--botao-texto);
+  background: var(--bordo);
+  border-radius: var(--raio);
+  text-decoration: none;
+  /* contorno interno fino: lembra a margem de uma estampa */
+  box-shadow: inset 0 0 0 3px var(--bordo), inset 0 0 0 4px color-mix(in srgb, var(--botao-texto) 55%, var(--bordo));
+}
+.botao:hover { color: var(--botao-texto); background: var(--bordo-2); box-shadow: inset 0 0 0 3px var(--bordo-2), inset 0 0 0 4px color-mix(in srgb, var(--botao-texto) 55%, var(--bordo-2)); }
+.botao:active { background: var(--bordo-2); }
+
+/* ---------- Listas sem marcador ---------- */
+.cartoes, .livros, .chips, .passos { list-style: none; margin: 0; padding: 0; }
+
+/* ---------- Vídeos recentes ---------- */
+.cartoes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); gap: 1.25rem 1rem; }
+.cartoes a {
+  display: block; height: 100%;
+  color: var(--tinta); text-decoration: none;
+  background: var(--papel-2);
+  border: 1px solid var(--filete);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+.cartoes a:hover { color: var(--tinta); border-color: var(--bordo); }
+.cartoes a:hover .titulo { color: var(--bordo); }
+/* hqdefault do YouTube é 4:3 com tarja preta em cima e embaixo; 16:9 + cover corta a tarja */
+.cartoes img {
+  width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
+  filter: sepia(.25);
+  border-bottom: 3px double var(--filete);
+  background: var(--papel-2);
+}
+@media (prefers-color-scheme: dark) { .cartoes img { filter: sepia(.25) brightness(.92); } }
+.cartoes .titulo { display: block; padding: .65rem .85rem 0; font-weight: 700; font-size: 1.1rem; line-height: 1.25; }
+.cartoes .pessoa { display: block; padding: .2rem .85rem .75rem; font: 400 .85rem/1.4 var(--sans); color: var(--suave); }
+
+/* ---------- Assuntos, passos ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+.chips a {
+  display: inline-flex; align-items: center; min-height: var(--alvo); padding: .3rem 1rem;
+  border: 1px solid var(--traco); border-radius: 999px;
+  font: 400 .9rem/1.3 var(--sans); text-decoration: none;
+}
+.chips a:hover { border-color: var(--bordo); background: var(--papel-2); }
+
+.passos { counter-reset: passo; }
+.passos li { counter-increment: passo; position: relative; margin: .75rem 0; padding-left: 2.6rem; }
+.passos li::before {
+  content: counter(passo);
+  position: absolute; left: 0; top: .1rem;
+  width: 1.7rem; height: 1.7rem;
+  border: 1px solid var(--bordo); border-radius: 50%;
+  text-align: center; font: 600 .85rem/1.6rem var(--sans); color: var(--bordo);
+}
+
+/* ---------- Livros: lista de catálogo, uma linha por obra ---------- */
+.livros { border-top: 1px solid var(--filete); margin-bottom: .5rem; }
+.livros li { padding: .75rem 0; border-bottom: 1px solid var(--filete); line-height: 1.35; }
+.livros li a { font-weight: 700; font-size: 1.1rem; }
+.livros small { display: block; margin-top: .2rem; font: 400 .85rem/1.45 var(--sans); color: var(--suave); }
+
+/* ---------- Texto corrido (páginas legais) ---------- */
+.texto { font-size: 1.15rem; }
+.texto h1 { margin-bottom: .25rem; }
+.texto h2 { font-size: 1.4rem; margin-top: 2.25rem; }
+.texto > p:first-of-type em { color: var(--suave); font-size: 1rem; }   /* "Última atualização" */
+.texto ul { margin: 0 0 1.1rem; padding-left: 1.4rem; }
+.texto li { margin: .5rem 0; padding-left: .25rem; }
+.texto li::marker { color: var(--bordo); }
+.texto p, .texto li { max-width: 40rem; }
+.texto code {
+  font: .8em/1.4 var(--mono);
+  padding: .1em .4em;
+  background: var(--papel-2);
+  border: 1px solid var(--filete);
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+  hyphens: none;
+}
+
+/* ---------- Rodapé ---------- */
+.rodape { position: relative; margin-top: 3.5rem; padding-block: 1.5rem 2.5rem; font: 400 .9rem/1.6 var(--sans); color: var(--suave); }
+.rodape::before { top: 0; }
+.rodape p { margin: 0 0 .4rem; }
+.rodape a { display: inline-block; padding-block: .3rem; }
+.aviso { font-size: .85rem; }
+
+/* ---------- Movimento ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  a, .botao, .chips a, .cartoes a, .cartoes .titulo { transition: color .15s ease-out, background-color .15s ease-out, border-color .15s ease-out; }
+}
