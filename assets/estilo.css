@@ -110,6 +110,7 @@ a:hover { color: var(--bordo-2); text-decoration-thickness: .12em; }
 
 /* ---------- Títulos ---------- */
 h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.15; text-wrap: balance; }
+h1, h2, h3, .marca { hyphens: manual; }
 h1 { font-size: clamp(2.2rem, 8vw, 3.4rem); letter-spacing: -.01em; margin: 2rem 0 .5rem; }
 h2 { font-size: 1.65rem; margin: 3rem 0 1rem; padding-top: .8rem; border-top: 3px double var(--filete); }
 h3 { font-size: 1.25rem; margin: 1.75rem 0 .4rem; }
@@ -122,7 +123,8 @@ section[id], .assunto { scroll-margin-top: 1rem; }   /* destino das âncoras (#r
 .botoes { display: flex; flex-wrap: wrap; gap: .75rem; margin: 0 0 1rem; }
 .botao {
   display: inline-flex; align-items: center; justify-content: center; min-height: var(--alvo);
-  padding: .6rem 1.2rem;
+  padding: .6rem calc(1.2rem - 1px);
+  border: 1px solid transparent;   /* aparece em forced-colors; o 1px sai do padding e o botão não cresce */
   font: 600 .95rem/1.2 var(--sans);
   color: var(--botao-texto);
   background: var(--bordo);
@@ -157,7 +159,7 @@ section[id], .assunto { scroll-margin-top: 1rem; }   /* destino das âncoras (#r
   background: var(--papel-2);
 }
 @media (prefers-color-scheme: dark) { .cartoes img { filter: sepia(.25) brightness(.92); } }
-.cartoes .titulo { display: block; padding: .65rem .85rem 0; font-weight: 700; font-size: 1.1rem; line-height: 1.25; }
+.cartoes .titulo { overflow-wrap: anywhere; display: block; padding: .65rem .85rem 0; font-weight: 700; font-size: 1.1rem; line-height: 1.25; }
 .cartoes .pessoa { display: block; padding: .2rem .85rem .75rem; font: 400 .85rem/1.4 var(--sans); color: var(--suave); }
 
 /* ---------- Assuntos, passos ---------- */
