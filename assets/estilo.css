@@ -1,4 +1,4 @@
-/* Histórias Antigas: folha de estilo única, escrita à mão. Sem framework, sem build, sem JavaScript, sem requisição externa.
+/* Histórias Antigas: folha de estilo única, escrita à mão. Sem framework, sem build, sem requisição externa (o JavaScript do consentimento está em consentimento.js).
    Direção: editorial de acervo. Papel envelhecido, tinta sépia, bordô, filetes duplos de gravura. Serifa (EB Garamond) para
    títulos e texto; sem serifa (Inter) só para rótulos, botões e metadados. Mobile primeiro, gutter de 16 px. */
 
@@ -223,3 +223,25 @@ section[id], .assunto { scroll-margin-top: 1rem; }   /* destino das âncoras (#r
 @media (prefers-reduced-motion: no-preference) {
   a, .botao, .chips a, .cartoes a, .cartoes .titulo { transition: color .15s ease-out, background-color .15s ease-out, border-color .15s ease-out; }
 }
+
+/* ---------- Consentimento de cookies (assets/consentimento.js) ---------- */
+.rodape .link { all: unset; cursor: pointer; display: inline-block; padding-block: .3rem; color: var(--bordo); text-decoration: underline; text-decoration-thickness: .06em; text-underline-offset: .18em; }
+.rodape .link:hover { color: var(--bordo-2); }
+.rodape .link:focus-visible { outline: 3px solid var(--bordo); outline-offset: 3px; border-radius: 2px; }
+.consentimento {
+  position: fixed; inset: auto 0 0 0; z-index: 50;
+  display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; justify-content: space-between;
+  padding: 1rem var(--gutter);
+  background: var(--papel-2); color: var(--tinta);
+  border-top: 3px double var(--filete);
+  font: 400 .95rem/1.5 var(--sans);
+}
+.consentimento p { margin: 0; flex: 1 1 22rem; max-width: 40rem; }
+.consentimento-botoes { display: flex; gap: .6rem; }
+.consentimento button {
+  min-height: var(--alvo); padding: 0 1.25rem; cursor: pointer;
+  font: 600 .95rem/1 var(--sans); color: var(--botao-texto);
+  background: var(--bordo); border: 2px solid var(--bordo); border-radius: var(--raio);
+}
+.consentimento button:hover { background: var(--bordo-2); border-color: var(--bordo-2); }
+.consentimento button:focus-visible { outline: 3px solid var(--tinta); outline-offset: 3px; }
