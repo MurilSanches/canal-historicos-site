@@ -95,10 +95,14 @@
     var a = alvo.closest("a[href]");
     if (!a) return;
     if (a.hasAttribute("data-loja")) {
-      gtag("event", "clique_afiliado", {
-        loja: a.getAttribute("data-loja"),
-        livro: a.getAttribute("data-livro") || "",
-        destino: a.hostname,
+      var loja = a.getAttribute("data-loja");
+      var livro = a.getAttribute("data-livro") || "";
+      gtag("event", "clique_afiliado", { loja: loja, livro: livro, destino: a.hostname, transport_type: "beacon" });
+      /* select_item é um evento de e-commerce padrão: o livro aparece em Monetização > Compras de e-commerce
+         (Nome do item / Marca do item = loja) sem precisar registrar dimensão personalizada. */
+      gtag("event", "select_item", {
+        item_list_name: "livros",
+        items: [{ item_id: livro, item_name: livro, item_brand: loja, item_category: "livro" }],
         transport_type: "beacon"
       });
     } else if (a.hostname && a.hostname !== location.hostname) {
